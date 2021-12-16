@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package com.analog.adis16470.frc;
+package frc.utilities;
 
 import java.lang.reflect.Array;
 //import java.lang.FdLibm.Pow;
