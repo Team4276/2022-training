@@ -24,7 +24,7 @@ public class RoboRioPorts {
 	// *** DIO ***
 	public static final int DIO_DRIVE_LEFT_A = 0;
 	public static final int DIO_DRIVE_LEFT_B = 1;
-	
+
 	public static final int DIO_DRIVE_RIGHT_A = 2;
 	public static final int DIO_DRIVE_RIGHT_B = 3;
 
@@ -32,4 +32,4 @@ public class RoboRioPorts {
 
 	public static final int DIO_ARM_ENCODER_A = 5;
 	public static final int DIO_ARM_ENCODER_B = 6;
-}//end class
+}// end class

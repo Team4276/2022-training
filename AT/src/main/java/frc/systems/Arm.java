@@ -40,16 +40,14 @@ public class Arm {
     }
 
     public void armPeriodic() {
-        if(Robot.myLimitSwitch.isArmTouching())
-        {
+        if (Robot.myLimitSwitch.isArmTouching()) {
             commandedPower = 0.0;
-        }
-        else {
+        } else {
             computeManualPower();
             commandedPower = manualPower;
             limitCommandedPower();
         }
-         myArmController.set(ControlMode.PercentOutput, commandedPower);
+        myArmController.set(ControlMode.PercentOutput, commandedPower);
 
         SmartDashboard.putNumber("XboxL_Y", Robot.xboxJoystick.getRawAxis(Xbox.LAxisY));
         SmartDashboard.putNumber("Arm Output %", commandedPower);
