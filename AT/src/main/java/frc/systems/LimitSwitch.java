@@ -7,7 +7,10 @@ import edu.wpi.first.hal.simulation.DIODataJNI;
 
 public class LimitSwitch extends DIODataJNI {//Class declaration: "public class 'Name of the class' {}"
     
+
     //create instance variables that will be used throughout the code 
+
+    //create instance variables that will be used throughout the code (See Unit 1 on APCS videos in slack)
     
     boolean LSwitchStatus; //stores a True/False value on whether or not the limit switch is activated
 
@@ -16,10 +19,10 @@ public class LimitSwitch extends DIODataJNI {//Class declaration: "public class 
         LSwitchStatus = LSwitch;
         
     }//end constructor
-    
-    
-    public boolean isArmTouching(){
         
+
+    public boolean isArmTouching()
+    {   
         return Robot.myLimitSwitch.LSwitchStatus;
     
     }//end method
