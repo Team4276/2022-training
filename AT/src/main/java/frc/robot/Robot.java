@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.Notifier;
 import edu.wpi.first.wpilibj.Timer;
 
 import frc.systems.Drivetrain;
+import frc.systems.LimitSwitch;
 import frc.utilities.RoboRioPorts;
 
 public class Robot extends TimedRobot {
@@ -17,11 +18,14 @@ public class Robot extends TimedRobot {
   public static Joystick leftJoystick;
   public static Joystick rightJoystick;
   public static Joystick xboxJoystick;
+  public static LimitSwitch myLimitSwitch;
 
   Notifier driveRateGroup;
   public static Drivetrain mDrivetrain;
 
   public static Timer systemTimer;
+
+//private boolean armTouching;
  
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -33,6 +37,7 @@ public class Robot extends TimedRobot {
     leftJoystick = new Joystick(0);
     rightJoystick = new Joystick(1);
     xboxJoystick = new Joystick(2);
+    myLimitSwitch = new LimitSwitch(4, false);
 
     mDrivetrain = new Drivetrain(true, RoboRioPorts.CAN_DRIVE_L1, RoboRioPorts.CAN_DRIVE_L2, RoboRioPorts.CAN_DRIVE_L3,
     RoboRioPorts.CAN_DRIVE_R1, RoboRioPorts.CAN_DRIVE_R2, RoboRioPorts.CAN_DRIVE_R3,
@@ -63,11 +68,17 @@ public class Robot extends TimedRobot {
 
   /** This function is called once when teleop is enabled. */
   @Override
-  public void teleopInit() {}
+  public void teleopInit() {
+
+    
+  }
 
   /** This function is called periodically during operator control. */
   @Override
-  public void teleopPeriodic() {}
+  public void teleopPeriodic() {
+
+    Robot.myLimitSwitch.isArmTouching();
+  }
 
   /** This function is called once when the robot is disabled. */
   @Override
