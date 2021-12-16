@@ -27,5 +27,9 @@ public class RoboRioPorts {
 	
 	public static final int DIO_DRIVE_RIGHT_A = 2;
 	public static final int DIO_DRIVE_RIGHT_B = 3;
+
 	public static final int DIO_LIMIT_SWITCH = 4;
+
+	public static final int DIO_ARM_ENCODER_A = 5;
+	public static final int DIO_ARM_ENCODER_B = 6;
 }//end class
