@@ -62,4 +62,3 @@ public class Arm {
         SmartDashboard.putNumber("Arm_EncoderAngle", myArmEncoder.getDistance());  
     }
 }//end class
-

@@ -6,6 +6,7 @@ package frc.robot;
 
 import frc.systems.LimitSwitch;
 import frc.systems.Arm;
+import frc.systems.ClimbSystem;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Notifier;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -20,6 +21,7 @@ public class Robot extends TimedRobot  {
   public static Joystick xboxJoystick;
   public static LimitSwitch myLimitSwitch;
   public static Arm robotArm;
+  public static ClimbSystem robotGrabber;
 
   Notifier driveRateGroup;
   public static Drivetrain mDrivetrain;
@@ -42,6 +44,7 @@ public class Robot extends TimedRobot  {
     myLimitSwitch = new LimitSwitch(RoboRioPorts.DIO_LIMIT_SWITCH);
     //robotArm = new Arm(speed controler port, encoder port a, encoder port b);
     robotArm = new Arm(0,0,0);//set zeros as placeholders
+    robotGrabber = new ClimbSystem(0,0,0);//set as placeholders
 
     mDrivetrain = new Drivetrain(true, RoboRioPorts.CAN_DRIVE_L1, RoboRioPorts.CAN_DRIVE_L2, RoboRioPorts.CAN_DRIVE_L3,
         RoboRioPorts.CAN_DRIVE_R1, RoboRioPorts.CAN_DRIVE_R2, RoboRioPorts.CAN_DRIVE_R3,
@@ -86,8 +89,8 @@ public class Robot extends TimedRobot  {
   @Override
   public void teleopPeriodic() {
 
-    //Robot.myLimitSwitch.isArmTouching();
-    Robot.Arm.armPeriodic();
+    Robot.myLimitSwitch.isArmTouching();
+    Robot.robotArm.armPeriodic();
   }
 
   /** This function is called once when the robot is disabled. */

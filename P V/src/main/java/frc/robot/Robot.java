@@ -8,9 +8,10 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Notifier;
 import edu.wpi.first.wpilibj.Timer;
-
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.systems.Drivetrain;
 import frc.utilities.RoboRioPorts;
+import frc.utilities.ADIS16470_IMU;
 
 public class Robot extends TimedRobot {
 
@@ -22,6 +23,9 @@ public class Robot extends TimedRobot {
   public static Drivetrain mDrivetrain;
 
   public static Timer systemTimer;
+
+  public static ADIS16470_IMU myImu;
+
  
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -42,6 +46,8 @@ public class Robot extends TimedRobot {
     // Drive train motor control is done on its own timer driven thread regardless of disabled/teleop/auto mode selection
     driveRateGroup = new Notifier(mDrivetrain::operatorDrive);
     driveRateGroup.startPeriodic(0.05);  
+
+    myImu = new ADIS16470_IMU();
   }
 
   /**
@@ -52,7 +58,10 @@ public class Robot extends TimedRobot {
    * SmartDashboard integrated updating.
    */
   @Override
-  public void robotPeriodic() {}
+  public void robotPeriodic() {
+    
+    SmartDashboard.putNumber("IMU Rotation (degrees)", myImu.getRotation2d().getDegrees());    
+  }
 
   @Override
   public void autonomousInit() {}
