@@ -89,8 +89,9 @@ public class Robot extends TimedRobot  {
   @Override
   public void teleopPeriodic() {
 
-    Robot.myLimitSwitch.isArmTouching();
-    Robot.robotArm.armPeriodic();
+    myLimitSwitch.isArmTouching();
+    robotArm.armPeriodic();
+    robotArm.armPeriodic();
   }
 
   /** This function is called once when the robot is disabled. */
